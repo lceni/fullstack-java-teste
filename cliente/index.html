@@ -1,0 +1,70 @@
+
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <!-- The above 3 meta tags *must* come first in the head; any other head content must come *after* these tags -->
+    <meta name="description" content="fullstack-java-teste">
+    <meta name="author" content="lucas.ceni@gmail.com">
+
+    <title>lceni@fullstack-java-teste</title>
+
+	<!-- Fav and touch icons -->
+    <link rel="shortcut icon" href="resources/images/favicon.ico">
+
+    <!-- Bootstrap core CSS -->
+    <link href="vendors/bower_components/bootstrap/dist/css/bootstrap.min.css" rel="stylesheet">
+
+    <!-- Custom styles for this template -->
+    <link href="resources/css/navbar-fixed-top.css" rel="stylesheet">
+  </head>
+
+  <body ng-app="FullstackJavaTesteApp" ng-controller="mainController">
+
+    <!-- Fixed navbar -->
+    <nav class="navbar navbar-default navbar-fixed-top">
+      <div class="container">
+        <div class="navbar-header">
+          <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#navbar" aria-expanded="false" aria-controls="navbar">
+            <span class="sr-only">Abrir menu</span>
+            <span class="icon-bar"></span>
+            <span class="icon-bar"></span>
+            <span class="icon-bar"></span>
+          </button>
+          <a class="navbar-brand" href="#/">lceni@fullstack-java-teste</a>
+        </div>
+        <div id="navbar" class="navbar-collapse collapse">
+          <ul class="nav navbar-nav">
+            <li ng-class="getClass('/produtos')"><a href="#produtos">Produtos</a></li>
+            <li ng-class="getClass('/clientes')"><a href="#clientes">Clientes</a></li>
+            <li ng-class="getClass('/pedidos')"><a href="#pedidos">Pedidos</a></li>
+          </ul>
+        </div><!--/.nav-collapse -->
+      </div>
+    </nav>
+
+	<div class="container">
+		<ng-view></ng-view>
+	</div>
+	<!-- /container -->
+
+
+	<!-- Bootstrap core JavaScript
+    ================================================== -->
+    <!-- Placed at the end of the document so the pages load faster -->
+    <script src="vendors/bower_components/jquery/dist/jquery.min.js"></script>
+    <script>window.jQuery || document.write('<script src="../../assets/js/vendor/jquery.min.js"><\/script>')</script>
+    <script src="vendors/bower_components/bootstrap/dist/js/bootstrap.min.js"></script>
+    
+    <!-- Angular
+    ================================================== -->
+    <script src="vendors/bower_components/angular/angular.js"></script>
+    <script src="vendors/bower_components/angular-route/angular-route.js"></script>
+    <script src="vendors/bower_components/jquery.maskedinput/dist/jquery.maskedinput.js"></script>
+    <script src="resources/js/app.js"></script>
+    <script src="resources/js/services.js"></script>
+    <script src="resources/js/controllers.js"></script>
+  </body>
+</html>

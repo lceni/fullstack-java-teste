@@ -1,0 +1,31 @@
+<div class="row">
+	<div class="col-lg-12">
+		<form>
+		  <div class="form-group">
+		    <label for="pesquisar">Pesquisar</label>
+		    <input ng-model="pedidosFilter" type="text" class="form-control" id="pesquisar" placeholder="Pesquisar pelo nome do cliente...">
+		  </div>
+		 </form>
+		<table class="table">
+			<thead>
+			  <tr>
+			  	<th>ID</th>
+			  	<th>Número</th>
+			  	<th>Data de Emissão</th>
+			  	<th>Cliente</th>
+			  	<th>Total</th>
+			  </tr>
+			</thead>
+			<tbody>
+			  <tr ng-repeat="pedido in pedidosList | filter: searchFilter">
+			    <td><a href="#/pedidos/{{pedido.id}}">{{pedido.id}}</a></td>
+			    <td>{{pedido.numero}}</td>
+			    <td>{{dateAPIservice.formatarData(pedido.dataEmissao)}}</td>
+			    <td>{{pedido.cliente.nome + pedido.cliente.razaoSocial}}</td>
+			    <td>{{pedido.total}}</td>
+			  </tr>
+			</tbody>
+		</table>
+		<button type="button" class="btn btn-default" ng-click="go('/pedidos/novo')">Adicionar</button>
+	</div>
+</div>

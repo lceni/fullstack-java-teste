@@ -1,0 +1,29 @@
+<div class="row">
+	<div class="col-lg-12">
+		<form>
+		  <div class="form-group">
+		    <label for="pesquisar">Pesquisar</label>
+		    <input ng-model="produtoFilter" type="text" class="form-control" id="pesquisar" placeholder="Pesquisar por código ou descrição...">
+		  </div>
+		 </form>
+		<table class="table">
+			<thead>
+			  <tr>
+			  	<th>ID</th>
+			  	<th>Código</th>
+			  	<th>Descrição</th>
+			  	<th>Valor</th>
+			  </tr>
+			</thead>
+			<tbody>
+			  <tr ng-repeat="produto in produtosList | filter: searchFilter">
+			    <td><a href="#/produtos/{{produto.id}}">{{produto.id}}</a></td>
+			    <td>{{produto.codigo}}</td>
+			    <td>{{produto.descricao}}</td>
+			    <td>{{produto.valor}}</td>
+			  </tr>
+			</tbody>
+		</table>
+		<button type="button" class="btn btn-default" ng-click="go('/produtos/novo')">Adicionar</button>
+	</div>
+</div>

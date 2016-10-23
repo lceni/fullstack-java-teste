@@ -1,0 +1,31 @@
+<div class="row">
+	<div class="col-lg-12">
+		<form>
+		  <div class="form-group">
+		    <label for="pesquisar">Pesquisar</label>
+		    <input ng-model="clienteFilter" type="text" class="form-control" id="pesquisar" placeholder="Pesquisar por telefone, email, nome ou razão social...">
+		  </div>
+		 </form>
+		<table class="table">
+			<thead>
+			  <tr>
+			  	<th>ID</th>
+			  	<th>Nome / Razão Social</th>
+			  	<th>CPF / CNPJ</th>
+			  	<th>Telefone</th>
+			  	<th>Email</th>
+			  </tr>
+			</thead>
+			<tbody>
+			  <tr ng-repeat="cliente in clientesList | filter: searchFilter">
+			    <td><a href="#/clientes/{{cliente.id}}">{{cliente.id}}</a></td>
+			    <td>{{cliente.nome + cliente.razaoSocial}}</td>
+			    <td>{{cliente.cpf + cliente.cnpj}}</td>
+			    <td>{{cliente.telefone}}</td>
+			    <td>{{cliente.email}}</td>
+			  </tr>
+			</tbody>
+		</table>
+		<button type="button" class="btn btn-default" ng-click="go('/clientes/novo')">Adicionar</button>
+	</div>
+</div>

@@ -1,0 +1,67 @@
+<h3>Adicionar Cliente</h3>
+<form>
+	<div class="form-group">
+		<label for="numero">Número</label>
+		<input type="text" class="form-control" id="numero" ng-model="numero">
+	</div>
+	<div class="form-group">
+		<label for="dataEmissao">Data de Emissão</label>
+		<input type="text" class="form-control" id="dataEmissao" ng-model="dataEmissao">
+	</div>
+	<div class="form-group">
+		<label for="cliente">Cliente:</label>
+		<select class="form-control" id="cliente" ng-model="cliente"
+        	ng-options="item as (item.nome + item.razaoSocial) for item in clientes track by item.id">
+		    <option value="">Selecione um cliente</option>
+		</select>
+	</div>
+	<br/>
+	<br/>
+	<div class="row">
+		<div class="col-lg-12">
+			<fieldset>
+				<legend>Produtos</legend>
+				<div class="row">
+		<div class="col-lg-1"></div>
+		<div class="col-lg-10">
+			<table class="table centralized">
+				<thead>
+					<tr>
+						<th>ID</th>
+						<th>Código</th>
+						<th>Descrição</th>
+						<th>Valor</th>
+						<th>Quantidade</th>
+						<th>Ação</th>
+					</tr>
+				</thead>
+				<tbody>
+					<tr ng-repeat="produto in produtosList">
+						<td><a href="#/produtos/{{produto.id}}">{{produto.id}}</a></td>
+						<td>{{produto.codigo}}</td>
+						<td>{{produto.descricao}}</td>
+						<td>{{produto.valor}}</td>
+						<td>{{produto.quantidade}}</td>
+						<td>
+							<button type="button" class="btn btn-success" ng-click="adicionar(produto)">+</button>
+							<button type="button" class="btn btn-danger" ng-click="remover(produto)">-</button>
+						</td>
+					</tr>
+				</tbody>
+			</table>
+		</div>
+	</div>
+	<div class="col-lg-1"></div>
+			</fieldset>
+		</div>
+	</div>
+
+	<button type="button" class="btn btn-default pull-right" ng-click="go('/pedidos')">Voltar</button>
+	<button type="button" class="btn btn-success" ng-click="salvar()">Salvar</button>
+	<button type="button" class="btn btn-danger {{novo ? 'hidden' : '' }}" ng-click="excluir()">Excluir</button>
+</form>
+<script>
+jQuery(function($){
+   $("#dataEmissao").mask("99/99/9999");
+});
+</script>
