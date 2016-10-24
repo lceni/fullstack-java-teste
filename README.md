@@ -1,119 +1,39 @@
-# Por que trabalhar na Contabilizei
+# lceni@fullstack-java-teste
 
-**Eleita a melhor startup B2B da América Latina em 2016, a Contabilizei** é um escritório de contabilidade online, líder de mercado, com sede em Curitiba (PR). Nosso propósito é resolver a dor e burocracia de micro e pequenas empresas ao se manterem regulares com o governo. Somos contadores, só que online, simples assim. Acreditamos no poder da tecnologia para melhorar continuamente a vida das pessoas. 
+Aplicação single-web-page e RESTful webservice que utiliza as seguintes tecnologias:
 
-Se você tem espírito e comportamento empreendedor, muita disposição e proatividade para trabalhar em uma empresa em franca expansão, você é um forte candidato :)
+**Cliente:**
+* Angular-1.5.8
+* Bootstrap-3.3.7
+* JQuery-3.1.1
 
-Como Desenvolvedor Full-stack você irá atuar no desenvolvimento de soluções em arquitetura Java Web MVC com RestFul APis (JAX-RS), integrações com outros sistemas (SOAP, XML, JSON), banco de dados NoSQL e soluções escaláveis, participando de todo o processo de desenvolvimento, desde tomadas de decisões à codificação e testes.
+**Servidor:**
+* Maven
+* Jetty
+* Jersey (com MOXy e JAXB)
+* Rich Domain Model & Persistent Domain Objects
+* JUnit
+* MongoDB
 
-### O que fazem os Ninjas da Contabilizei? O que comem (e bebem)? Onde vivem?
+### Para facilitar a execução em uma máquina de desenvolvimento ou testes, é necessário:
 
-Somos um time de desenvolvimento ágil, focado em fazer as coisas acontecerem. Trabalhamos com Kanban, entregas contínuas, Git, Cloud, aplicações distribuídas e mais uma porrada de tecnologias novas... Queremos que nosso cliente tenha o produto e a experiência mais fodásticos do planeta. Gostamos de compartilhar ideias, testar tecnologias e de cerveja :)
-
-# O trabalho por aqui
-
-Que tal fazer parte de um time com atitude “get Fˆ%#ing things done”? Participar de uma das maiores disrupções no mercado? Ter a oportunidade de trabalhar com tecnologias e conceitos inovadores, como:
-* Práticas ágeis como Kanban / Scrum
-* Google Cloud Platform
-* Escalabilidade
-* Micro services e aplicações distribuídas
-* Kubernetes
+* Node.js
+* Maven
 * Git
-* AngularJs
-* Material Design
-* BDD
+* Bower (npm install bower -g)
+* http-server (npm install http-server -g)
 
-Mais informações sobre a vaga você encontra aqui: [Desenvolvedor Full Stack Java na Contabilizei](https://jobs.lever.co/contabilizei/826c32bd-d800-475a-9f05-531e86dc4ea3)
+### Instruções para execução:
 
-# O que preciso fazer?
+Faça uma cópia local deste repositório, em seguida, execute os passos abaixo para cada um dos projetos, a partir do diretório fullstack-java-teste:
 
-Vamos ser práticos e diretos, se você quer trabalhar conosco siga os passos abaixo:
+**Cliente:**
 
-* Faça um "fork" desse projeto para sua conta GitHub.
-* Implemente o desafio descrito no tópico abaixo.
-* Faça um push para seu repositório com o desafio implementado.
-* Envie um email para (souninja@contabilizei.com.br) avisando que finalizou o desafio com a url do seu fork.
-* Cruze os dedos e aguarde nosso contato.
+     cd cliente
+     bower install
+     http-server -a localhost -p 8000 -c-1 -o
 
-# O desafio (CRUD de pedidos)
+**Servidor:**
 
-Você deverá criar 2 aplicações para cadastramento de pedidos de venda: 
-
-**Back-end:** aplicação JavaEE baseada em Web Services no padrão RESTful JAX-RS.
-
-**Front-end:** Single Page Application que se comunique com estes serviços. 
-
-A aplicação Back-end dever ter, ao menos, serviços para: inclusão, alteração, exclusão e listagem dos pedidos.
-
-Pedidos deverão conter: 
-* número
-* data de emissão
-* cliente
-* lista de produtos
-* valor total
- 
-Cada produto do pedido deve ter: 
-* código
-* descrição
-* quantidade
-* valor unitário
-
-No pedido, deve constar as seguintes informações do cliente: 
-* cpf ou cnpj
-* nome ou razão social
-* telefone
-* e-mail
-
-### Tecnologias
-
-Escolha umas das opções abaixo para implementar sua solução. A modelagem dos dados fica a seu critério. Não se preocupe com autenticação ou multitenancy.
-
-#### BACK-END
-
-**Opção 1**
-
-* Aplicação JavaEE utilizando framework [**Google App Engine para Java**](https://cloud.google.com/appengine/)
-* Banco de dados NOSQL [Datastore](https://cloud.google.com/datastore/)
-* RESTFul API com [Google Endpoints](https://cloud.google.com/appengine/docs/java/endpoints/) ou Jersey JAX-RS
-
-**Opção 2**
-
-* Aplicação pura Java EE (não utilize Spring, Struts, EJB, etc)
-* RESTful API JAX-RS utilizando Servlets ou framework Jersey
-* Banco de dados SQL (MySQL, PostgreSQL, HSQLDB) com JPA ou NOSQL(MongoDB)
-
-#### FRONT-END
-
-* Single Page Application utilizando apenas HTML5 e CSS3 
-* Javascript puro / JQuery (e plugins)
-* AngularJS 1.x
-* Bootstrap (http://getbootstrap.com/) ou Angular Material Design (será diferencial)
-
-**Recomendações gerais:**
-
-* Não utilize frameworks ou BD que não foram indicados
-* Para servidor de aplicação utilize Jetty ou Tomcat (Não utilize: JBOSS, Wildfly ou qualquer outro servidor. Por quê? Critério de facilidade de configuração)
-* Utilize o Maven para gerenciamento de dependências
-* Utilizar automatizadores como Bower, Gulp, Grant é opcional.
-
-### Arquitetura e documentação
-
-No arquivo README do projeto explique o funcionamento e a arquitetura da solução adotada na sua implementação. Descreva também os passos para executar corretamente seu projeto.
-
-### Avaliação
-
-Entre os critérios de avaliação estão:
-
-* Facilidade de configuração do projeto
-* Performance
-* Código limpo e organização
-* Documentação de código
-* Documentação do projeto (readme)
-* Arquitetura
-* Boas práticas de desenvolvimento
-* Design Patterns
-
-# Sobre você
-
-Queremos saber um pouco mais sobre você também :) Por favor, responda o questionário do arquivo [questions.md](questions.md) e envie junto com seu projeto.
-
+     cd servidor
+     mvn exec:java -Dexec.mainClass="br.com.contabilizei.lceni.servidor.App"
